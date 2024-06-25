@@ -20,6 +20,13 @@
   padding: 0 50px;
 }
 
+@media (max-width: 935px) {
+  .header {
+    height: 55px;
+    line-height: 55px;
+  }
+}
+
 @media (max-width: 576px) {
   .header,
   .container {

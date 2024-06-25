@@ -6,7 +6,9 @@ import { FC } from 'react';
 const HomePage: FC = () => {
   return (
     <Flex align="center" justify="center">
-      <Typography.Title style={{ width: '50%', textAlign: 'center', paddingTop: '100px' }}>
+      <Typography.Title
+        style={{ fontSize: 'clamp(24px, 3vw, 40px)', textAlign: 'center', paddingTop: '100px' }}
+      >
         Добро пожаловать на портал сервисного центра автомобилей "KIA"
       </Typography.Title>
     </Flex>

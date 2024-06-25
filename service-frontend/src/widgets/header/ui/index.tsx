@@ -1,14 +1,12 @@
 import { FC } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import y, { useMediaQuery } from 'react-responsive';
 import { observer } from 'mobx-react-lite';
-import { useTranslation } from 'react-i18next';
 
 import { useStore } from 'app/store';
 import { ThemeSwitcher } from 'features';
 
 import { Image, Layout, Menu, Space } from 'antd';
-import { useGetMenuItems } from 'shared/hooks';
+import { useGetMenuItems, useMedia } from 'shared/hooks';
 
 import logo from 'shared/img/logo.png';
 import { AuthOrProfileButtons } from './auth-or-profile-buttons';
@@ -16,11 +14,10 @@ import { AuthOrProfileButtons } from './auth-or-profile-buttons';
 const Header: FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   const { auth, profile } = useStore();
 
-  const isDesktop = useMediaQuery({ minWidth: 911 });
+  const { isDesktop } = useMedia();
 
   const menuItems = useGetMenuItems(profile.profile?.role);
 

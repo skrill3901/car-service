@@ -10,6 +10,7 @@ import {
   HomePage,
 } from 'pages';
 import { rootStore } from 'app/store';
+import { Flex, Typography } from 'antd';
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +50,13 @@ export const router = createBrowserRouter([
 
       {
         path: '*',
-        element: <span style={{ color: 'red' }}>Page not found</span>,
+        element: (
+          <Flex align="center" justify="center" style={{ marginTop: '100px' }}>
+            <Typography.Title level={3} type="danger">
+              Page not found
+            </Typography.Title>
+          </Flex>
+        ),
       },
     ],
   },
