@@ -8,15 +8,18 @@ import {
   RegistrationPage,
   SchedulePage,
   HomePage,
+  PageNotFound,
 } from 'pages';
 import { rootStore } from 'app/store';
-import { Flex, Typography } from 'antd';
 
 export const router = createBrowserRouter([
   {
     id: 'root',
     path: '/',
-    loader: async () => rootStore.auth.refreshTokens(),
+    loader: async () => {
+      await rootStore.auth.refreshTokens();
+      return null;
+    },
     element: <App />,
     children: [
       {
@@ -50,13 +53,7 @@ export const router = createBrowserRouter([
 
       {
         path: '*',
-        element: (
-          <Flex align="center" justify="center" style={{ marginTop: '100px' }}>
-            <Typography.Title level={3} type="danger">
-              Page not found
-            </Typography.Title>
-          </Flex>
-        ),
+        element: <PageNotFound />,
       },
     ],
   },
