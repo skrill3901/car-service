@@ -19,11 +19,11 @@ const Schedule: FC = () => {
     if (initialRender.current) {
       registrationForRepairsState.getAcceptors();
       initialRender.current = false;
+    } else {
+      return () => {
+        registrationForRepairsState.clearState();
+      };
     }
-
-    return () => {
-      registrationForRepairsState.clearState();
-    };
   }, []);
 
   useEffect(() => {

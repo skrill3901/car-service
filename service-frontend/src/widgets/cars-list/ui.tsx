@@ -42,6 +42,7 @@ const CarsList: FC = () => {
 
     navigate('/schedule');
     registrationForRepairsState.setCurrentCarId(carId);
+    registrationForRepairsState.setCars(profile.carsInfo);
   };
 
   return (

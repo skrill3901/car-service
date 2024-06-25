@@ -1,4 +1,4 @@
-import { FC, useCallback, useEffect, useMemo } from 'react';
+import { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
 
 import { Select } from 'antd';
@@ -9,8 +9,13 @@ import { FieldProps } from './types';
 export const MaintenancesField: FC<FieldProps> = observer(({ value, onChange }) => {
   const { maintenances, currentCarId } = registrationForRepairsState;
 
+  const initialRender = useRef(true);
+
   useEffect(() => {
-    if (currentCarId) registrationForRepairsState.getMaintenances(currentCarId);
+    if (currentCarId && initialRender.current) {
+      registrationForRepairsState.getMaintenances(currentCarId);
+      initialRender.current = false;
+    }
   }, [currentCarId]);
 
   const handleChange = useCallback(
