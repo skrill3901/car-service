@@ -32,7 +32,7 @@ export const MobileMenu: FC = () => {
       </Button>
       <Drawer
         style={{ minWidth: '3z00px' }}
-        placement="left"
+        placement="right"
         width="auto"
         onClose={onClose}
         open={open}

@@ -1,4 +1,4 @@
-type MenuKeys = '/' | 'schedule' | 'cars';
+type MenuKeys = '/' | 'schedule' | 'cars' | 'profile';
 
 type MenuItems = {
   label: string;
@@ -9,6 +9,10 @@ export const menuItems: MenuItems[] = [
   {
     label: 'Home',
     key: '/',
+  },
+  {
+    label: 'Profile',
+    key: 'profile',
   },
   {
     label: 'Schedule',
